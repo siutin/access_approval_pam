@@ -1,6 +1,6 @@
 
 SHELL:=/bin/bash
-BUILD_PATH := ./build
+BUILD_PATH := ./bin
 MODULE_NAME := pam_access_approval
 
 CFG_PATH:=/etc/pam.d

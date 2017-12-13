@@ -28,3 +28,4 @@ include_directories("${PROJECT_SOURCE_DIR}/build")
 
 SET(libSRCs src/pam_access_approval.c)
 ADD_LIBRARY(pam_access_approval SHARED ${libSRCs})
+set_target_properties(pam_access_approval PROPERTIES PREFIX "")
