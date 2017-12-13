@@ -7,6 +7,8 @@ CFG_PATH:=/etc/pam.d
 SO_PATH:=`ls -d /lib/*/security/`
 CFG_NAME=$(subst pam_,,$(MODULE_NAME))
 
+all: build install run
+
 build: $(BUILD_PATH)/$(MODULE_NAME).so
 
 $(BUILD_PATH)/$(MODULE_NAME).so: $(BUILD_PATH)/$(MODULE_NAME).o
