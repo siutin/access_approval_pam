@@ -26,6 +26,10 @@ install:
 	@cp --verbose $(BUILD_PATH)/$(MODULE_NAME).so $(SO_PATH)/
 	./config.sh $(MODULE_NAME) > $(CFG_PATH)/$(CFG_NAME)
 
+run:
+	pamtester $(CFG_NAME) root open_session
+	pamtester $(CFG_NAME) root authenticate
+
 .PHONY: clean
 
 clean:
