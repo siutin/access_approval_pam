@@ -1,7 +1,7 @@
 
 SHELL:=/bin/bash
 BUILD_PATH := ./build
-MODULE_NAME := pam_module
+MODULE_NAME := pam_demo
 
 CFG_PATH:=/etc/pam.d
 SO_PATH:=`ls -d /lib/*/security/`
