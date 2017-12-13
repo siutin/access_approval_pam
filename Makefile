@@ -1,13 +1,16 @@
 
-build: build/pam_module.so
+BUILD_PATH := ./build
+MODULE_NAME := pam_module
 
-build/pam_module.so: build/pam_module.o
-	gcc -shared -o build/pam_module.so build/pam_module.o -lpam
+build: $(BUILD_PATH)/$(MODULE_NAME).so
 
-build/pam_module.o: src/pam_module.c
-	gcc -fPIC -c src/pam_module.c -o build/pam_module.o
+$(BUILD_PATH)/$(MODULE_NAME).so: $(BUILD_PATH)/$(MODULE_NAME).o
+	gcc -shared -o $(BUILD_PATH)/$(MODULE_NAME).so $(BUILD_PATH)/$(MODULE_NAME).o -lpam
+
+$(BUILD_PATH)/$(MODULE_NAME).o: src/$(MODULE_NAME).c
+	gcc -fPIC -c src/$(MODULE_NAME).c -o $(BUILD_PATH)/$(MODULE_NAME).o
 
 .PHONY: clean
 
 clean:
-	-rm build/*
+	-rm $(BUILD_PATH)/*
