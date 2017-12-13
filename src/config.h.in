@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define ACCESS_APPROVAL_PAM_VERSION_MAJOR @AccessApprovalPam_VERSION_MAJOR@
+#define ACCESS_APPROVAL_PAM_VERSION_MINOR @AccessApprovalPam_VERSION_MINOR@
