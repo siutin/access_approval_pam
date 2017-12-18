@@ -9,6 +9,7 @@
 #include <security/pam_modules.h>
 #include <security/pam_appl.h>
 #include "src/config.h"
+#include <libfswatch/c/libfswatch.h>
 
 void msleep(uint32_t milisec)
 {
@@ -23,6 +24,14 @@ void msleep(uint32_t milisec)
 
 PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char *argv[]) {
 	printf("access_approval_pam (v%d.%d) - authenticate\n", ACCESS_APPROVAL_PAM_VERSION_MAJOR, ACCESS_APPROVAL_PAM_VERSION_MINOR);
+	// Initialize the library
+	FSW_STATUS ret = fsw_init_library();
+	printf("fsw_init_library: %d\n", ret);
+
+	if (ret != FSW_OK)
+	{
+		return PAM_SYSTEM_ERR;
+	}
 	return PAM_SUCCESS;
 }
 

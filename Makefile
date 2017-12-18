@@ -12,7 +12,7 @@ all: build install run
 build: $(BUILD_PATH)/$(MODULE_NAME).so
 
 $(BUILD_PATH)/$(MODULE_NAME).so: $(BUILD_PATH)/$(MODULE_NAME).o
-	gcc -shared -o $(BUILD_PATH)/$(MODULE_NAME).so $(BUILD_PATH)/$(MODULE_NAME).o -lpam
+	gcc -Wall -shared -o $(BUILD_PATH)/$(MODULE_NAME).so $(BUILD_PATH)/$(MODULE_NAME).o -lpam -lfswatch
 
 $(BUILD_PATH)/$(MODULE_NAME).o: src/$(MODULE_NAME).c
 	gcc -fPIC -c src/$(MODULE_NAME).c -o $(BUILD_PATH)/$(MODULE_NAME).o
